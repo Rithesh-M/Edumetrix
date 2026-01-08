@@ -1,12 +1,10 @@
-<!-- Project note: This file gives a simple beginner-friendly guide for setting up and running the Java version of EduMetrix. -->
-<!-- It focuses on the main steps only so the project is easy to understand and start quickly. -->
-# EduMetrix
+# EDUMETRIXX
 
-EduMetrix is a Java full-stack web app built with Spring Boot, Maven, Hibernate/JPA, and MySQL.
+EDUMETRIXX is a Java full-stack web app built with Spring Boot, Maven, Hibernate/JPA, and MySQL.
 
-The UI is already included inside the Java project, so you only need to start the backend app to run the full website.
+The frontend assets are served by the Spring Boot app, so you only need the Java service running to use the site.
 
-## What This Project Uses
+## Stack
 
 - Java 21+
 - Maven
@@ -14,66 +12,46 @@ The UI is already included inside the Java project, so you only need to start th
 - Hibernate / JPA
 - MySQL
 
-## What It Does
-
-- Supports student and parent accounts
-- Saves daily study/activity logs
-- Updates the same date's log instead of creating duplicates
-- Shows dashboard, goals, subjects, and profile data
-
-## MySQL Setup
-
-Use these MySQL credentials:
-
-- Username: `root`
-- Password: `ritheshmac`
-
-Create a database in MySQL:
-
-```sql
-CREATE DATABASE edumetrix;
-```
-
 ## Environment Variables
 
-Set these before starting the app:
+Set these before running locally or deploying:
 
 ```bash
 export DB_HOST=127.0.0.1
 export DB_PORT=3306
 export DB_NAME=edumetrix
-export DB_USERNAME=root
-export DB_PASSWORD=ritheshmac
-export AUTH_SECRET=replace-with-your-secret
+export DB_USERNAME=your-db-user
+export DB_PASSWORD=your-db-password
+export AUTH_SECRET=replace-with-a-long-random-secret
+```
+
+Create the database first if needed:
+
+```sql
+CREATE DATABASE edumetrix;
 ```
 
 ## Run Locally
-
-Start the app with:
 
 ```bash
 mvn spring-boot:run
 ```
 
-Open:
+Open `http://localhost:8080`.
 
-```text
-http://localhost:8080
-```
-
-## Build the Project
+## Build
 
 ```bash
-mvn package -DskipTests
+mvn clean package -DskipTests
 ```
 
-The jar file will be created in `target/`.
+The jar will be written to `target/`.
 
-## Deploy on Render
+## Deploy
 
-This project is ready for Render using [render.yaml](/Users/ritheshmekala/Desktop/EDUMETRIXX%20copy/render.yaml).
+This repository includes [render.yaml](/Users/ritheshmekala/Desktop/EDUMETRIXX%20copy/render.yaml) for Render deployment.
 
-Add the same environment variables on Render:
+Configure these environment variables in Render:
 
 - `DB_HOST`
 - `DB_PORT`
@@ -82,6 +60,4 @@ Add the same environment variables on Render:
 - `DB_PASSWORD`
 - `AUTH_SECRET`
 
-## Extra Note
-
-If you want to change credentials later, you can also check [JAVA_CREDENTIALS_README.md](/Users/ritheshmekala/Desktop/EDUMETRIXX%20copy/JAVA_CREDENTIALS_README.md).
+More setup notes are in [JAVA_CREDENTIALS_README.md](/Users/ritheshmekala/Desktop/EDUMETRIXX%20copy/JAVA_CREDENTIALS_README.md).
