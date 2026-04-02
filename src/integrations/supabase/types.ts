@@ -14,16 +14,231 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      activities: {
+        Row: {
+          assignments_completed: number
+          coding_practice_hours: number
+          created_at: string
+          date: string
+          exercise_minutes: number
+          id: string
+          notes: string | null
+          productivity_score: number | null
+          student_id: string
+          study_hours: number
+          subject_wise_breakdown: Json | null
+          updated_at: string
+        }
+        Insert: {
+          assignments_completed?: number
+          coding_practice_hours?: number
+          created_at?: string
+          date?: string
+          exercise_minutes?: number
+          id?: string
+          notes?: string | null
+          productivity_score?: number | null
+          student_id: string
+          study_hours?: number
+          subject_wise_breakdown?: Json | null
+          updated_at?: string
+        }
+        Update: {
+          assignments_completed?: number
+          coding_practice_hours?: number
+          created_at?: string
+          date?: string
+          exercise_minutes?: number
+          id?: string
+          notes?: string | null
+          productivity_score?: number | null
+          student_id?: string
+          study_hours?: number
+          subject_wise_breakdown?: Json | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      goals: {
+        Row: {
+          created_at: string
+          current_value: number | null
+          deadline: string | null
+          description: string | null
+          goal_type: string
+          id: string
+          is_completed: boolean
+          student_id: string
+          target_value: number | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          current_value?: number | null
+          deadline?: string | null
+          description?: string | null
+          goal_type?: string
+          id?: string
+          is_completed?: boolean
+          student_id: string
+          target_value?: number | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          current_value?: number | null
+          deadline?: string | null
+          description?: string | null
+          goal_type?: string
+          id?: string
+          is_completed?: boolean
+          student_id?: string
+          target_value?: number | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          bio: string | null
+          created_at: string
+          email: string
+          gender: string | null
+          id: string
+          name: string
+          nickname: string | null
+          parent_id: string | null
+          profile_picture_url: string | null
+          pronouns: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          bio?: string | null
+          created_at?: string
+          email?: string
+          gender?: string | null
+          id?: string
+          name?: string
+          nickname?: string | null
+          parent_id?: string | null
+          profile_picture_url?: string | null
+          pronouns?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          bio?: string | null
+          created_at?: string
+          email?: string
+          gender?: string | null
+          id?: string
+          name?: string
+          nickname?: string | null
+          parent_id?: string | null
+          profile_picture_url?: string | null
+          pronouns?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      streaks: {
+        Row: {
+          current_streak: number
+          id: string
+          last_active_date: string | null
+          longest_streak: number
+          student_id: string
+          updated_at: string
+        }
+        Insert: {
+          current_streak?: number
+          id?: string
+          last_active_date?: string | null
+          longest_streak?: number
+          student_id: string
+          updated_at?: string
+        }
+        Update: {
+          current_streak?: number
+          id?: string
+          last_active_date?: string | null
+          longest_streak?: number
+          student_id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      subject_slots: {
+        Row: {
+          actual_hours: number
+          allocated_hours: number
+          created_at: string
+          date: string
+          id: string
+          student_id: string
+          subject_name: string
+        }
+        Insert: {
+          actual_hours?: number
+          allocated_hours?: number
+          created_at?: string
+          date?: string
+          id?: string
+          student_id: string
+          subject_name: string
+        }
+        Update: {
+          actual_hours?: number
+          allocated_hours?: number
+          created_at?: string
+          date?: string
+          id?: string
+          student_id?: string
+          subject_name?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "student" | "parent" | "admin"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +365,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["student", "parent", "admin"],
+    },
   },
 } as const
