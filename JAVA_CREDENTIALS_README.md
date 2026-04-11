@@ -22,7 +22,7 @@ export DB_PORT=3306
 export DB_NAME=edumetrix
 export DB_USERNAME=root
 export DB_PASSWORD=your-password
-expqort AUTH_SECRET=replace-with-a-long-random-secret
+export AUTH_SECRET=replace-with-a-long-random-secret
 ```
 
 Then start the app:
