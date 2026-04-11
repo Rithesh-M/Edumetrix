@@ -1,0 +1,15 @@
+# Project note: This file keeps the static Java-served site crawl rules from the original frontend build.
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: *
+Allow: /

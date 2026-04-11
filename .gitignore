@@ -1,3 +1,4 @@
+# Project note: This file keeps local Node remnants, Maven cache files, build output, and secret env files out of git.
 # Logs
 logs
 *.log
@@ -11,6 +12,10 @@ node_modules
 dist
 dist-ssr
 *.local
+.m2/
+target/
+*.class
+.env
 
 # Editor directories and files
 .vscode/*
